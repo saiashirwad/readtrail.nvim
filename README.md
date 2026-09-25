@@ -13,6 +13,9 @@ With [vim.pack](https://neovim.io/doc/user/pack/) (Neovim 0.12+):
 ```lua
 vim.pack.add({ 'https://github.com/saiashirwad/readtrail.nvim' })
 
+-- Suggested mapping (none are set by default)
+vim.keymap.set('n', '<leader>ta', '<cmd>TraceAdd<cr>', { desc = 'Add reading trace' })
+
 -- Optional configuration
 local readtrail = require('readtrail')
 readtrail.context_lines = 4
@@ -20,7 +23,7 @@ readtrail.prompt = [[Read my notes in order and check them against the code.
 Focus on questions I have not answered myself.]]
 ```
 
-- `<leader>ta` (Normal) or `<C-g>t` (Insert): add a note. Enter continues it.
+- `:TraceAdd`: add a note. Enter continues it.
 - `:TraceExport`: view notes with file paths, line numbers, and code excerpts.
 - `:TraceCopy`: copy the export.
 - `:TraceClear`: remove notes and reset numbering. Save the affected buffers afterward.

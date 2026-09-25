@@ -15,9 +15,3 @@ end
 for command, action in pairs({ TraceAdd = 'add', TraceExport = 'show', TraceCopy = 'copy', TraceClear = 'clear' }) do
   vim.api.nvim_create_user_command(command, run(action), {})
 end
-
-for mode, key in pairs({ n = '<leader>ta', i = '<C-g>t' }) do
-  if vim.fn.maparg(key, mode) == '' then
-    vim.keymap.set(mode, key, run('add'), { desc = 'Add reading trace' })
-  end
-end
